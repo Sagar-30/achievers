@@ -467,7 +467,7 @@ const Home = () => {
               <FaInstagram />
             </a>
             <a href="https://wa.me/9671303016" target="_blank" rel="noopener noreferrer" className="social-link">
-              <FaWhatsapp />
+              <FaWhatsapp /> 
             </a>
           </div>
           <div className="footer-copyright">
