@@ -53,12 +53,12 @@ const Home = () => {
 
   // Instagram showcase posts data
   const instaPosts = [
-    { id: 1, img: "https://images.unsplash.com/photo-1554224311-b01f4c0c1f1f?w=600&h=600&fit=crop", caption: "🔥 Longest fire baton twirl - 3 mins 22 secs • New World Record!", name: "@flame_master", likes: "12.4K", comments: "342" },
-    { id: 2, img: "https://images.unsplash.com/photo-1586892477838-2b96e85e0f96?w=600&h=600&fit=crop", caption: "🏆 Most pull-ups in 24h - 7,214 reps! Unbelievable grit.", name: "@ironwill_athlete", likes: "8.7K", comments: "189" },
-    { id: 3, img: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=600&h=600&fit=crop", caption: "🎨 Largest sand mosaic artwork - 12,000 sq ft. Record breaker!", name: "@sandartist_global", likes: "15.2K", comments: "567" },
-    { id: 4, img: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=600&h=600&fit=crop", caption: "💃 Most salsa dance spins - 128 consecutive spins! Certified.", name: "@dancephenom", likes: "9.3K", comments: "234" },
-    { id: 5, img: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600&h=600&fit=crop", caption: "🧠 Fastest Rubik's cube solve blindfolded - 12.4 sec. Genius!", name: "@cube_mind", likes: "22.1K", comments: "891" },
-    { id: 6, img: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&h=600&fit=crop", caption: "🏃‍♂️ Fastest marathon in costume - 2hrs 45min! Amazing feat.", name: "@speedrunner", likes: "6.2K", comments: "145" }
+    { id: 1, img: "/BINDITA_SINHA.jpg", caption: "'PRERNA STAR AWARD' in the field of Content Marketer!", name: "@Ms. BINDITA SINHA", likes: "", comments: "" },
+    { id: 2, img: "/Dixant_Soni.jpg", caption: "'PRERNA STAR AWARD' in the category of Social Service!", name: "@Mr. Dixant Soni", likes: "", comments: "" },
+    { id: 3, img: "/Kanduri_Prameela.jpg", caption: "'PRERNA STAR AWARD' in the category of Literature!", name: "@Kanduri Prameela", likes: "", comments: "" },
+    { id: 4, img: "/Shah_Huzaib.jpg", caption: "'PRERNA STAR AWARD' in the category of Sports!", name: "@Shah Huzaib", likes: "", comments: "" },
+    { id: 5, img: "/Samarth_Nandagudi.jpg", caption: "'PRERNA STAR AWARD' in recognition of his multi-talented personality In writes stories and poems, clay modelling scientific experiments, drawing paper craft, origami paper art, best out of waste snowman!", name: "@Samarth Nandagudi", likes: "", comments: "" },
+    { id: 6, img: "/Khushbu_Mehta.jpg", caption: "'PRERNA STAR AWARD' in recognition of her valuable contributions to the field of healthcare!", name: "@Dr. Khushbu Mehta", likes: "", comments: "" }
   ];
 
   // Steps data
@@ -425,7 +425,7 @@ const Home = () => {
           </div>
           
           <div className="instagram-follow">
-            <a href="https://instagram.com" target="_blank" className="follow-link">
+            <a href="https://www.instagram.com/achieversbookofrecords" target="_blank" className="follow-link">
               Follow @achieversrecord <FaInstagram />
             </a>
           </div>
