@@ -52,6 +52,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .Home-icon{
+    display: none;
+  }
+}
+
 .blog-hero-subtitle {
   font-size: 18px;
   color: #9ca3af;

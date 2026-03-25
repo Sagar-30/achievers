@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  FaCalendarAlt, 
-  FaUser, 
-  FaTag, 
-  FaHeart, 
-  FaComment, 
+import {
+  FaCalendarAlt,
+  FaUser,
+  FaTag,
+  FaHeart,
+  FaComment,
   FaShare,
   FaSearch,
   FaTimes,
@@ -254,15 +254,15 @@ const Blog = () => {
   // Filter posts based on search and category
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
   // Featured posts (first 2 featured posts)
   const featuredPosts = blogPosts.filter(post => post.featured).slice(0, 2);
-  
+
   // Trending posts
   const trendingPosts = blogPosts.filter(post => post.trending).slice(0, 3);
 
@@ -343,13 +343,16 @@ const Blog = () => {
       {/* Search and Filter Bar */}
       <div className="blog-controls">
         <div className="blog-controls-container">
+
           {/* Home icon */}
-          <div style={{cursor:"pointer"}}
-          onClick={()=>navigate("/")}>
-            <FaHome size={30}/>
-            </div>
+          <div style={{ cursor: "pointer" }}
+            onClick={() => navigate("/")} className='Home-icon'>
+            <FaHome size={30} />
+          </div>
+
           {/* Search */}
           <div className={`search-wrapper ${showSearch ? 'active' : ''}`}>
+
             <FaSearch className="search-icon" />
             <input
               type="text"
@@ -544,7 +547,7 @@ const Blog = () => {
               <button className="close-detail" onClick={closeBlog}>
                 <FaTimes />
               </button>
-              
+
               <div className="blog-detail-content">
                 <div className="blog-detail-header">
                   <div className="detail-category">{selectedBlog.category}</div>
@@ -578,7 +581,7 @@ const Blog = () => {
                 </div>
 
                 <div className="detail-actions">
-                  <button 
+                  <button
                     className={`action-btn like-btn ${likedPosts[selectedBlog.id] ? 'active' : ''}`}
                     onClick={() => handleLike(selectedBlog.id)}
                   >
@@ -592,7 +595,7 @@ const Blog = () => {
                 </div>
 
                 <div className="detail-navigation">
-                  <button 
+                  <button
                     onClick={() => navigateBlog('prev')}
                     disabled={filteredPosts.findIndex(p => p.id === selectedBlog.id) === 0}
                     className="nav-btn"
@@ -600,7 +603,7 @@ const Blog = () => {
                     <FaArrowLeft />
                     Previous Story
                   </button>
-                  <button 
+                  <button
                     onClick={() => navigateBlog('next')}
                     disabled={filteredPosts.findIndex(p => p.id === selectedBlog.id) === filteredPosts.length - 1}
                     className="nav-btn"
