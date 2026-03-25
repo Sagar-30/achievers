@@ -264,7 +264,7 @@ const Home = () => {
             >
               <div className="about-image-wrapper">
                 <img
-                  src="https://images.unsplash.com/photo-1532619187608-e5375cab36aa?w=800&auto=format"
+                  src="/Home_Poster.png"
                   alt="Achievers celebration"
                   className="about-image"
                 />

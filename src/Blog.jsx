@@ -12,11 +12,13 @@ import {
   FaArrowLeft,
   FaArrowRight,
   FaBookOpen,
-  FaRegClock
+  FaRegClock,
+  FaHome
 } from 'react-icons/fa';
 import { IoMdTrendingUp } from 'react-icons/io';
 import { BiCategory } from 'react-icons/bi';
 import './Blog.css';
+import { useNavigate } from 'react-router-dom';
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,6 +26,7 @@ const Blog = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
   const [likedPosts, setLikedPosts] = useState({});
+  const navigate = useNavigate();
 
   // Sample blog posts data
   const blogPosts = [
@@ -340,6 +343,11 @@ const Blog = () => {
       {/* Search and Filter Bar */}
       <div className="blog-controls">
         <div className="blog-controls-container">
+          {/* Home icon */}
+          <div style={{cursor:"pointer"}}
+          onClick={()=>navigate("/")}>
+            <FaHome size={30}/>
+            </div>
           {/* Search */}
           <div className={`search-wrapper ${showSearch ? 'active' : ''}`}>
             <FaSearch className="search-icon" />
