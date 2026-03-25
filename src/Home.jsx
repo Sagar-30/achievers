@@ -1,18 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  FaInstagram, 
-  FaWhatsapp, 
-  FaMedal, 
-  FaCertificate, 
-  FaIdCard, 
-  FaBookOpen, 
-  FaTrophy, 
-  FaAward,
-  FaArrowRight,
-  FaBars,
-  FaTimes
-} from 'react-icons/fa';
+import { FaInstagram,FaWhatsapp, FaMedal, FaCertificate, FaIdCard, FaBookOpen, FaTrophy, FaAward,FaArrowRight,FaBars,FaTimes} from 'react-icons/fa';
 import { IoStar, IoArrowForward, IoHeart, IoShareSocial } from 'react-icons/io5';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import './App.css';
@@ -51,7 +39,7 @@ const Home = () => {
 
   // Google Form handler
   const openGoogleForm = () => {
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdummyExampleViewform", "_blank");
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfB2mAwJMuyqQzdmXLDhVhPteSbgM63d_1uDFQeHBcC3mMuXw/viewform?usp=sf_link", "_blank");
   };
 
   // Kit items data
@@ -86,7 +74,8 @@ const Home = () => {
     { name: "About", href: "#about" },
     { name: "Achievers Kit", href: "#kit" },
     { name: "Showcase", href: "#showcase" },
-    { name: "Contact", href: "#contact" }
+    { name: "Contact", href: "#contact" },
+    { name: "Blogs", href: "/blog" }
   ];
 
   // Mobile carousel navigation
@@ -474,10 +463,10 @@ const Home = () => {
       <footer className="footer">
         <div className="footer-container">
           <div className="footer-social">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://www.instagram.com/achieversbookofrecords/" target="_blank" rel="noopener noreferrer" className="social-link">
               <FaInstagram />
             </a>
-            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://wa.me/9671303016" target="_blank" rel="noopener noreferrer" className="social-link">
               <FaWhatsapp />
             </a>
           </div>
