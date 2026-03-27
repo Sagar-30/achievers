@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaInstagram,FaWhatsapp, FaMedal, FaCertificate, FaIdCard, FaBookOpen, FaTrophy, FaAward,FaArrowRight,FaBars,FaTimes} from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaMedal, FaCertificate, FaIdCard, FaBookOpen, FaTrophy, FaAward, FaArrowRight, FaBars, FaTimes } from 'react-icons/fa';
 import { IoStar, IoArrowForward, IoHeart, IoShareSocial } from 'react-icons/io5';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import './App.css';
@@ -10,18 +10,36 @@ const Home = () => {
 
   // Smooth scroll handler for anchor links
   useEffect(() => {
-    const handleAnchorClick = (e) => {
-      const target = e.target.closest('a');
-      if (target && target.hash && target.hash.startsWith('#') && target.origin === window.location.origin) {
-        const id = target.hash.slice(1);
-        const element = document.getElementById(id);
-        if (element) {
-          e.preventDefault();
-          setMobileMenuOpen(false);
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    };
+    // const handleAnchorClick = (e) => {
+    //   const target = e.target.closest('a');
+    //   if (target && target.hash && target.hash.startsWith('#') && target.origin === window.location.origin) {
+    //     const id = target.hash.slice(1);
+    //     const element = document.getElementById(id);
+    //     if (element) {
+    //       e.preventDefault();
+    //       setMobileMenuOpen(false);
+    //       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //     }
+    //   }
+    // };
+
+  const handleAnchorClick = (e) => {
+  const target = e.target.closest('a');
+  if (target && target.getAttribute('href') && target.getAttribute('href').startsWith('#')) {
+    e.preventDefault();
+    e.stopPropagation(); // Add this to prevent event bubbling issues
+    const id = target.getAttribute('href').slice(1);
+    const element = document.getElementById(id);
+    if (element) {
+      // Close menu first, then scroll after a tiny delay
+      setMobileMenuOpen(false);
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.history.pushState(null, '', target.getAttribute('href'));
+      }, 100); // Small delay to allow menu to close
+    }
+  }
+};
     document.addEventListener('click', handleAnchorClick);
     return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
@@ -103,7 +121,7 @@ const Home = () => {
               ACHIEVERS<span className="gold-gradient"> RECORDS</span>
             </span>
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="nav-links-desktop">
             {navItems.map(item => (
@@ -112,22 +130,22 @@ const Home = () => {
               </a>
             ))}
           </div>
-          
+
           <div className="desktop-apply-btn">
             <a href="#contact" className="apply-btn">
               Apply Now
             </a>
           </div>
-          
+
           {/* Mobile Menu Button */}
-          <button 
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="mobile-menu-btn"
           >
             {mobileMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
-        
+
         {/* Mobile Menu Dropdown */}
         <AnimatePresence>
           {mobileMenuOpen && (
@@ -140,19 +158,19 @@ const Home = () => {
             >
               <div className="mobile-menu-items">
                 {navItems.map(item => (
-                  <a 
-                    key={item.name} 
-                    href={item.href} 
+                  <a
+                    key={item.name}
+                    href={item.href}
                     className="mobile-nav-link"
-                    onClick={() => setMobileMenuOpen(false)}
+                    // onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
                   </a>
                 ))}
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   className="mobile-apply-btn"
-                  onClick={() => setMobileMenuOpen(false)}
+                  // onClick={() => setMobileMenuOpen(false)}
                 >
                   Apply Now
                 </a>
@@ -340,10 +358,10 @@ const Home = () => {
               Real Achievers. Real Glory. Follow their journey.
             </motion.p>
           </div>
-          
+
           {/* Mobile: Horizontal Scroll Carousel */}
           <div className="mobile-carousel">
-            <div 
+            <div
               id="insta-carousel-container"
               className="carousel-container"
             >
@@ -388,7 +406,7 @@ const Home = () => {
               </button>
             </div>
           </div>
-          
+
           {/* Desktop: Grid Layout */}
           <div className="desktop-grid">
             {instaPosts.map((post, i) => (
@@ -423,7 +441,7 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
-          
+
           <div className="instagram-follow">
             <a href="https://www.instagram.com/achieversbookofrecords" target="_blank" className="follow-link">
               Follow @achieversrecord <FaInstagram />
@@ -467,7 +485,7 @@ const Home = () => {
               <FaInstagram />
             </a>
             <a href="https://wa.me/9671303016" target="_blank" rel="noopener noreferrer" className="social-link">
-              <FaWhatsapp /> 
+              <FaWhatsapp />
             </a>
           </div>
           <div className="footer-copyright">
