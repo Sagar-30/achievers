@@ -901,7 +901,7 @@ body {
 .contact-btn {
   background: linear-gradient(135deg, #F5B042, #D4AF37);
   color: black;
-  font-weight: 800;
+  font-weight: 600;
   padding: 14px 32px;
   border-radius: 9999px;
   font-size: 16px;
@@ -909,7 +909,7 @@ body {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 1px;
   transition: all 0.3s;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
