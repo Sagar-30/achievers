@@ -184,7 +184,7 @@ const AwardView = () => {
           </div>
 
           {/* Download Button */}
-          <div className="download-section">
+          {/* <div className="download-section">
             <button onClick={downloadCertificate} className="download-certificate-btn" disabled={downloading}>
               <FaDownload />
               {downloading ? 'Downloading...' : 'Download Official Certificate'}
@@ -192,7 +192,7 @@ const AwardView = () => {
             <p className="secure-note">
               <FaCheckCircle /> This certificate is digitally verified and recognized globally
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
