@@ -1,0 +1,514 @@
+/* Light Mode Container */
+.award-view-container-light {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.certificate-wrapper {
+  max-width: 1000px;
+  width: 100%;
+  animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Certificate Card */
+.certificate {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(212, 175, 55, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Watermark */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.07;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.watermark img {
+  width: 300px;
+  height: auto;
+  filter: grayscale(100%);
+}
+
+/* Certificate Border */
+.certificate-border {
+  padding: 30px;
+  position: relative;
+  z-index: 2;
+  background: white;
+}
+
+.certificate-inner {
+  border: 2px solid #D4AF37;
+  padding: 40px;
+  position: relative;
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .certificate-border {
+    padding: 15px;
+  }
+  
+  .certificate-inner {
+    padding: 20px;
+  }
+}
+
+/* Top and Bottom Decorations */
+.top-decoration {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D4AF37, #F5B042, #D4AF37, transparent);
+}
+
+.bottom-decoration {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D4AF37, #F5B042, #D4AF37, transparent);
+}
+
+/* Certificate Header */
+.certificate-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.gold-seal-left,
+.gold-seal-right {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #F5B042, #D4AF37);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+}
+
+.header-text {
+  flex: 1;
+}
+
+.header-text h1 {
+  font-size: 28px;
+  color: #1a1a2e;
+  margin: 0;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.header-text p {
+  color: #D4AF37;
+  font-size: 16px;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .gold-seal-left,
+  .gold-seal-right {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .header-text h1 {
+    font-size: 18px;
+  }
+  
+  .header-text p {
+    font-size: 11px;
+  }
+}
+
+/* Award Badge */
+.award-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #F5B04215, #D4AF3715);
+  padding: 8px 20px;
+  border-radius: 40px;
+  margin: 0 auto 30px;
+  width: fit-content;
+  border: 1px solid #D4AF37;
+}
+
+.award-badge svg {
+  color: #D4AF37;
+  font-size: 18px;
+}
+
+.award-badge span {
+  color: #8B7355;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Certify Text */
+.certify-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.certify-text p {
+  color: #666;
+  font-size: 18px;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Awardee Name */
+.awardee-name {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.awardee-name h2 {
+  font-size: 42px;
+  color: #1a1a2e;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.name-underline {
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(90deg, #D4AF37, #F5B042);
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .awardee-name h2 {
+    font-size: 28px;
+  }
+  
+  .name-underline {
+    width: 120px;
+  }
+}
+
+/* Achievement Details */
+.achievement-details-light {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border-left: 4px solid #D4AF37;
+}
+
+.detail-row {
+  display: flex;
+  margin-bottom: 12px;
+  align-items: baseline;
+}
+
+.detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  width: 150px;
+  font-weight: 600;
+  color: #8B7355;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-value {
+  flex: 1;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.achievement-name-light {
+  color: #D4AF37;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .detail-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .detail-label {
+    width: 100%;
+  }
+  
+  .achievement-name-light {
+    font-size: 16px;
+  }
+}
+
+/* Description Section */
+.description-section {
+  margin-bottom: 35px;
+}
+
+.description-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8B7355;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.achievement-description-light {
+  color: #555;
+  line-height: 1.8;
+  font-size: 15px;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Verification Section */
+.verification-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 40px 0 30px;
+  padding-top: 20px;
+  border-top: 1px dashed #ddd;
+}
+
+.verification-left,
+.verification-right {
+  text-align: center;
+}
+
+.signature-line {
+  width: 200px;
+  height: 2px;
+  background: #333;
+  margin-bottom: 8px;
+}
+
+.verification-left p {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.verification-left .title {
+  color: #8B7355;
+  font-size: 11px;
+}
+
+.verification-center {
+  text-align: center;
+}
+
+.gold-stamp {
+  width: 80px;
+  height: 80px;
+  border: 3px solid #D4AF37;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fff8e7, #fff);
+}
+
+.stamp-inner {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #D4AF37;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: #D4AF37;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.qr-code-light {
+  margin-bottom: 8px;
+}
+
+.qr-code-light img {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  background: white;
+}
+
+.verification-right p {
+  font-size: 11px;
+  color: #666;
+  margin: 5px 0 0;
+}
+
+@media (max-width: 768px) {
+  .verification-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+  
+  .signature-line {
+    width: 150px;
+  }
+}
+
+/* Certificate Footer */
+.certificate-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  font-size: 11px;
+  color: #999;
+}
+
+.certificate-id,
+.certificate-date {
+  font-family: monospace;
+}
+
+/* Download Section */
+.download-section {
+  padding: 30px 40px 40px;
+  text-align: center;
+  background: linear-gradient(135deg, #f8f9fa, #fff);
+  border-top: 1px solid #eee;
+}
+
+.download-certificate-btn {
+  background: linear-gradient(135deg, #F5B042, #D4AF37);
+  border: none;
+  padding: 14px 35px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.download-certificate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.download-certificate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secure-note {
+  margin-top: 15px;
+  /* margin-left: 15px; */
+  font-size: 12px;
+  color: #8B7355;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.secure-note svg {
+  font-size: 14px;
+}
+
+/* Loading and Error States */
+.loading-container-light,
+.error-container-light {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+  color: #333;
+}
+
+.loader-light {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(212, 175, 55, 0.3);
+  border-top-color: #D4AF37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.error-container-light h2 {
+  color: #d32f2f;
+  margin-bottom: 10px;
+}
+
+/* Print Styles for Certificate Download */
+@media print {
+  .award-view-container-light {
+    background: white;
+    padding: 0;
+  }
+  
+  .download-section {
+    display: none;
+  }
+  
+  .certificate {
+    box-shadow: none;
+  }
+  
+  .watermark {
+    opacity: 0.1;
+  }
+}
