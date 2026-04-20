@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 20px 12px;
   font-family: 'Georgia', 'Times New Roman', serif;
 }
 
@@ -29,32 +29,79 @@
 /* Certificate Card */
 .certificate {
   background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(212, 175, 55, 0.2);
   overflow: hidden;
   position: relative;
 }
 
-/* Watermark */
+/* Add this to the existing CSS - Watermark visibility fix */
+
+/* Watermark - Fixed Visibility */
 .watermark {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.07;
-  z-index: 1;
+  opacity: 0.12;
+  z-index: 3;
   pointer-events: none;
 }
 
 .watermark img {
-  width: 300px;
+  width: 200px;
   height: auto;
   filter: grayscale(100%);
+  display: block;
 }
 
-/* Certificate Border */
+.watermark-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  white-space: nowrap;
+  font-family: Arial, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .watermark {
+    opacity: 0.1;
+  }
+  
+  .watermark img {
+    width: 300px;
+  }
+  
+  .watermark-text {
+    font-size: 36px;
+    letter-spacing: 6px;
+  }
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .watermark {
+    opacity: 0.08;
+  }
+  
+  .watermark img {
+    width: 150px;
+  }
+  
+  .watermark-text {
+    font-size: 16px;
+    letter-spacing: 2px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
+  }
+}
+
+/* Certificate Border - Mobile Optimized */
 .certificate-border {
-  padding: 30px;
+  padding: 15px;
   position: relative;
   z-index: 2;
   background: white;
@@ -62,62 +109,87 @@
 
 .certificate-inner {
   border: 2px solid #D4AF37;
-  padding: 40px;
+  padding: 20px 15px;
   position: relative;
   background: white;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .certificate-border {
-    padding: 15px;
+    padding: 30px;
   }
   
   .certificate-inner {
-    padding: 20px;
+    padding: 40px;
   }
 }
 
 /* Top and Bottom Decorations */
-.top-decoration {
+.top-decoration,
+.bottom-decoration {
   position: absolute;
-  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
+  width: 60px;
+  height: 2px;
   background: linear-gradient(90deg, transparent, #D4AF37, #F5B042, #D4AF37, transparent);
+}
+
+.top-decoration {
+  top: 15px;
 }
 
 .bottom-decoration {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #D4AF37, #F5B042, #D4AF37, transparent);
+  bottom: 15px;
 }
 
-/* Certificate Header */
+@media (min-width: 768px) {
+  .top-decoration,
+  .bottom-decoration {
+    width: 100px;
+    height: 3px;
+  }
+  
+  .top-decoration {
+    top: 20px;
+  }
+  
+  .bottom-decoration {
+    bottom: 20px;
+  }
+}
+
+/* Certificate Header - Mobile Optimized */
 .certificate-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
+  gap: 10px;
 }
 
 .gold-seal-left,
 .gold-seal-right {
-  width: 60px;
-  height: 60px;
+  width: 35px;
+  height: 35px;
   background: linear-gradient(135deg, #F5B042, #D4AF37);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 30px;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .gold-seal-left,
+  .gold-seal-right {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+  }
 }
 
 .header-text {
@@ -125,119 +197,173 @@
 }
 
 .header-text h1 {
-  font-size: 28px;
+  font-size: 14px;
   color: #1a1a2e;
   margin: 0;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-weight: 700;
+  line-height: 1.3;
 }
 
 .header-text p {
   color: #D4AF37;
-  font-size: 16px;
-  margin-top: 8px;
-  letter-spacing: 1px;
+  font-size: 8px;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
 }
 
-@media (max-width: 768px) {
-  .gold-seal-left,
-  .gold-seal-right {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-  
+@media (min-width: 480px) {
   .header-text h1 {
-    font-size: 18px;
+    font-size: 16px;
   }
   
   .header-text p {
-    font-size: 11px;
+    font-size: 10px;
   }
 }
 
-/* Award Badge */
+@media (min-width: 768px) {
+  .certificate-header {
+    margin-bottom: 30px;
+    gap: 20px;
+  }
+  
+  .header-text h1 {
+    font-size: 28px;
+  }
+  
+  .header-text p {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+}
+
+/* Award Badge - Mobile Optimized */
 .award-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   background: linear-gradient(135deg, #F5B04215, #D4AF3715);
-  padding: 8px 20px;
-  border-radius: 40px;
-  margin: 0 auto 30px;
+  padding: 4px 12px;
+  border-radius: 30px;
+  margin: 0 auto 20px;
   width: fit-content;
   border: 1px solid #D4AF37;
 }
 
 .award-badge svg {
   color: #D4AF37;
-  font-size: 18px;
+  font-size: 10px;
 }
 
 .award-badge span {
   color: #8B7355;
-  font-size: 12px;
+  font-size: 8px;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
-/* Certify Text */
+@media (min-width: 768px) {
+  .award-badge {
+    gap: 10px;
+    padding: 8px 20px;
+    margin-bottom: 30px;
+  }
+  
+  .award-badge svg {
+    font-size: 18px;
+  }
+  
+  .award-badge span {
+    font-size: 12px;
+  }
+}
+
+/* Certify Text - Mobile Optimized */
 .certify-text {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .certify-text p {
   color: #666;
-  font-size: 18px;
+  font-size: 11px;
   font-style: italic;
   margin: 0;
 }
 
-/* Awardee Name */
+@media (min-width: 768px) {
+  .certify-text {
+    margin-bottom: 20px;
+  }
+  
+  .certify-text p {
+    font-size: 18px;
+  }
+}
+
+/* Awardee Name - Mobile Optimized */
 .awardee-name {
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 
 .awardee-name h2 {
-  font-size: 42px;
+  font-size: 20px;
   color: #1a1a2e;
-  margin: 0 0 15px 0;
+  margin: 0 0 8px 0;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  word-break: break-word;
 }
 
 .name-underline {
-  width: 200px;
-  height: 3px;
+  width: 100px;
+  height: 2px;
   background: linear-gradient(90deg, #D4AF37, #F5B042);
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 480px) {
   .awardee-name h2 {
-    font-size: 28px;
+    font-size: 24px;
   }
   
   .name-underline {
-    width: 120px;
+    width: 140px;
   }
 }
 
-/* Achievement Details */
+@media (min-width: 768px) {
+  .awardee-name {
+    margin-bottom: 35px;
+  }
+  
+  .awardee-name h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+  }
+  
+  .name-underline {
+    width: 200px;
+    height: 3px;
+  }
+}
+
+/* Achievement Details - Mobile Optimized */
 .achievement-details-light {
   background: #f8f9fa;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-  border-left: 4px solid #D4AF37;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-left: 3px solid #D4AF37;
 }
 
 .detail-row {
   display: flex;
-  margin-bottom: 12px;
-  align-items: baseline;
+  flex-direction: column;
+  margin-bottom: 10px;
+  align-items: flex-start;
 }
 
 .detail-row:last-child {
@@ -245,95 +371,155 @@
 }
 
 .detail-label {
-  width: 150px;
   font-weight: 600;
   color: #8B7355;
-  font-size: 14px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin-bottom: 3px;
 }
 
 .detail-value {
-  flex: 1;
   color: #333;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
+  word-break: break-word;
 }
 
 .achievement-name-light {
   color: #D4AF37;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 13px;
 }
 
-@media (max-width: 768px) {
-  .detail-row {
-    flex-direction: column;
-    gap: 5px;
+@media (min-width: 480px) {
+  .achievement-details-light {
+    padding: 15px;
   }
   
   .detail-label {
-    width: 100%;
+    font-size: 11px;
+  }
+  
+  .detail-value {
+    font-size: 13px;
   }
   
   .achievement-name-light {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
-/* Description Section */
+@media (min-width: 768px) {
+  .achievement-details-light {
+    padding: 20px;
+    margin-bottom: 25px;
+    border-left: 4px solid #D4AF37;
+  }
+  
+  .detail-row {
+    flex-direction: row;
+    margin-bottom: 12px;
+    align-items: baseline;
+  }
+  
+  .detail-label {
+    width: 150px;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  
+  .detail-value {
+    font-size: 16px;
+  }
+  
+  .achievement-name-light {
+    font-size: 18px;
+  }
+}
+
+/* Description Section - Mobile Optimized */
 .description-section {
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 
 .description-label {
-  font-size: 12px;
+  font-size: 9px;
   font-weight: 600;
   color: #8B7355;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
   text-transform: uppercase;
 }
 
 .achievement-description-light {
   color: #555;
-  line-height: 1.8;
-  font-size: 15px;
+  line-height: 1.5;
+  font-size: 11px;
   margin: 0;
   text-align: justify;
 }
 
-/* Verification Section */
+@media (min-width: 480px) {
+  .description-label {
+    font-size: 10px;
+  }
+  
+  .achievement-description-light {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .description-section {
+    margin-bottom: 35px;
+  }
+  
+  .description-label {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .achievement-description-light {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+}
+
+/* Verification Section - Mobile Optimized */
 .verification-section {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
-  margin: 40px 0 30px;
-  padding-top: 20px;
+  align-items: center;
+  margin: 20px 0 20px;
+  padding-top: 15px;
   border-top: 1px dashed #ddd;
+  gap: 20px;
 }
 
 .verification-left,
 .verification-right {
   text-align: center;
+  width: 100%;
 }
 
 .signature-line {
-  width: 200px;
-  height: 2px;
+  width: 150px;
+  height: 1px;
   background: #333;
-  margin-bottom: 8px;
+  margin: 0 auto 6px;
 }
 
 .verification-left p {
-  margin: 5px 0;
-  font-size: 12px;
+  margin: 4px 0;
+  font-size: 9px;
   color: #666;
 }
 
 .verification-left .title {
   color: #8B7355;
-  font-size: 11px;
+  font-size: 8px;
 }
 
 .verification-center {
@@ -341,70 +527,132 @@
 }
 
 .gold-stamp {
-  width: 80px;
-  height: 80px;
-  border: 3px solid #D4AF37;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #D4AF37;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #fff8e7, #fff);
+  margin: 0 auto;
 }
 
 .stamp-inner {
-  width: 60px;
-  height: 60px;
+  width: 38px;
+  height: 38px;
   border: 1px solid #D4AF37;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 7px;
   font-weight: bold;
   color: #D4AF37;
   text-transform: uppercase;
   text-align: center;
+  line-height: 1.2;
 }
 
 .qr-code-light {
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .qr-code-light img {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border: 1px solid #ddd;
-  padding: 5px;
+  padding: 4px;
   background: white;
 }
 
 .verification-right p {
-  font-size: 11px;
+  font-size: 9px;
   color: #666;
-  margin: 5px 0 0;
+  margin: 4px 0 0;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 480px) {
+  .signature-line {
+    width: 180px;
+  }
+  
+  .gold-stamp {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .stamp-inner {
+    width: 45px;
+    height: 45px;
+    font-size: 8px;
+  }
+  
+  .qr-code-light img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (min-width: 768px) {
   .verification-section {
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
+    flex-direction: row;
+    margin: 40px 0 30px;
+    padding-top: 20px;
+    gap: 0;
+  }
+  
+  .verification-left,
+  .verification-right {
+    width: auto;
   }
   
   .signature-line {
-    width: 150px;
+    width: 200px;
+    height: 2px;
+  }
+  
+  .verification-left p {
+    font-size: 12px;
+  }
+  
+  .verification-left .title {
+    font-size: 11px;
+  }
+  
+  .gold-stamp {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .stamp-inner {
+    width: 60px;
+    height: 60px;
+    font-size: 10px;
+  }
+  
+  .qr-code-light img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .verification-right p {
+    font-size: 11px;
   }
 }
 
-/* Certificate Footer */
+/* Certificate Footer - Mobile Optimized */
 .certificate-footer {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  margin-top: 20px;
-  padding-top: 20px;
+  margin-top: 15px;
+  padding-top: 12px;
   border-top: 1px solid #eee;
-  font-size: 11px;
+  font-size: 8px;
   color: #999;
+  gap: 5px;
+  text-align: center;
 }
 
 .certificate-id,
@@ -412,9 +660,26 @@
   font-family: monospace;
 }
 
-/* Download Section */
+@media (min-width: 480px) {
+  .certificate-footer {
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 768px) {
+  .certificate-footer {
+    flex-direction: row;
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 11px;
+    gap: 0;
+    text-align: left;
+  }
+}
+
+/* Download Section - Mobile Optimized */
 .download-section {
-  padding: 30px 40px 40px;
+  padding: 20px 20px 25px;
   text-align: center;
   background: linear-gradient(135deg, #f8f9fa, #fff);
   border-top: 1px solid #eee;
@@ -423,22 +688,24 @@
 .download-certificate-btn {
   background: linear-gradient(135deg, #F5B042, #D4AF37);
   border: none;
-  padding: 14px 35px;
+  padding: 12px 20px;
   border-radius: 50px;
   color: white;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 13px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+  width: 100%;
+  justify-content: center;
 }
 
 .download-certificate-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
 }
 
 .download-certificate-btn:disabled {
@@ -448,20 +715,46 @@
 }
 
 .secure-note {
-  margin-top: 15px;
-  /* margin-left: 15px; */
-  font-size: 12px;
+  margin-top: 12px;
+  font-size: 10px;
   color: #8B7355;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 
 .secure-note svg {
-  font-size: 14px;
+  font-size: 11px;
 }
 
-/* Loading and Error States */
+@media (min-width: 480px) {
+  .download-certificate-btn {
+    padding: 12px 25px;
+    font-size: 14px;
+    width: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .download-section {
+    padding: 30px 40px 40px;
+  }
+  
+  .download-certificate-btn {
+    padding: 14px 35px;
+    font-size: 16px;
+    gap: 12px;
+  }
+  
+  .secure-note {
+    margin-top: 15px;
+    font-size: 12px;
+  }
+}
+
+/* Loading and Error States - Mobile Optimized */
 .loading-container-light,
 .error-container-light {
   min-height: 100vh;
@@ -471,16 +764,25 @@
   justify-content: center;
   background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
   color: #333;
+  padding: 20px;
+  text-align: center;
 }
 
 .loader-light {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 3px solid rgba(212, 175, 55, 0.3);
   border-top-color: #D4AF37;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .loader-light {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 @keyframes spin {
@@ -491,6 +793,11 @@
 .error-container-light h2 {
   color: #d32f2f;
   margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.error-container-light p {
+  font-size: 14px;
 }
 
 /* Print Styles for Certificate Download */
@@ -498,6 +805,7 @@
   .award-view-container-light {
     background: white;
     padding: 0;
+    margin: 0;
   }
   
   .download-section {
@@ -506,9 +814,14 @@
   
   .certificate {
     box-shadow: none;
+    border-radius: 0;
   }
   
-  .watermark {
-    opacity: 0.1;
+  .certificate-border {
+    padding: 10px;
+  }
+  
+  .certificate-inner {
+    padding: 15px;
   }
 }

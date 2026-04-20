@@ -5,11 +5,13 @@ import { doc, getDoc } from 'firebase/firestore';
 import { FaDownload, FaTrophy, FaUser, FaMapMarkerAlt, FaCalendarAlt, FaAward, FaCheckCircle, FaMedal } from 'react-icons/fa';
 import './AwardView.css';
 
+
 const AwardView = () => {
   const { id } = useParams();
   const [award, setAward] = useState(null);
   const [loading, setLoading] = useState(true);
   const [downloading, setDownloading] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   useEffect(() => {
     fetchAward();
@@ -80,7 +82,15 @@ const AwardView = () => {
         <div className="certificate">
           {/* Watermark Logo */}
           <div className="watermark">
-            <img src="/logo.jpg" alt="Achievers Book of Records" />
+            {!logoError ? (
+              <img 
+                src="/logo.jpg" 
+                alt="Achievers Book of Records" 
+                onError={() => setLogoError(true)}
+              />
+            ) : (
+              <div className="watermark-text">ACHIEVERS BOOK OF RECORDS</div>
+            )}
           </div>
           
           {/* Certificate Border */}
