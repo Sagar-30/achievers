@@ -81,7 +81,7 @@ const AwardView = () => {
       <div className="certificate-wrapper">
         <div className="certificate">
           {/* Watermark Logo */}
-          <div className="watermark">
+          {/* <div className="watermark">
             {!logoError ? (
               <img 
                 src="/logo-bg.png" 
@@ -91,7 +91,7 @@ const AwardView = () => {
             ) : (
               <div className="watermark-text">ACHIEVERS BOOK OF RECORDS</div>
             )}
-          </div>
+          </div> */}
           
           {/* Certificate Border */}
           <div className="certificate-border">
