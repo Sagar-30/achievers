@@ -16,6 +16,7 @@ const AdminDashboard = () => {
     place: '',
     achievementName: '',
     achievementDescription: '',
+    certificateNumber:'',
     certificateLink: ''
   });
   const [selectedAward, setSelectedAward] = useState(null);
@@ -48,6 +49,7 @@ const AdminDashboard = () => {
         place: '',
         achievementName: '',
         achievementDescription: '',
+        certificateNumber:'',
         certificateLink: ''
       });
       setShowForm(false);
@@ -146,6 +148,13 @@ const AdminDashboard = () => {
                 required
               />
               <input
+                type="text"
+                placeholder="Certificate Number"
+                value={formData.certificateNumber}
+                onChange={(e) => setFormData({ ...formData, certificateNumber: e.target.value })}
+                required
+              />
+              <input
                 type="url"
                 placeholder="Certificate Link (Google Drive)"
                 value={formData.certificateLink}
@@ -166,12 +175,12 @@ const AdminDashboard = () => {
       <div className="awards-grid">
         {awards.map((award) => (
           <div key={award.id} className="award-card">
-            <div className="award-card-header">
+            {/* <div className="award-card-header">
               <h3>{award.name}</h3>
               <button onClick={() => handleDelete(award.id)} className="delete-btn">
                 <FaTrash />
               </button>
-            </div>
+            </div> */}
             <div className="award-details">
               <p><strong>Age:</strong> {award.age}</p>
               <p><strong>Place:</strong> {award.place}</p>

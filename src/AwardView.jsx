@@ -84,7 +84,7 @@ const AwardView = () => {
           <div className="watermark">
             {!logoError ? (
               <img 
-                src="/logo.jpg" 
+                src="/logo-bg.png" 
                 alt="Achievers Book of Records" 
                 onError={() => setLogoError(true)}
               />
@@ -181,7 +181,7 @@ const AwardView = () => {
               {/* Certificate ID and Date */}
               <div className="certificate-footer">
                 <div className="certificate-id">
-                  Certificate ID: ABR-{award.id.slice(-8).toUpperCase()}
+                  Certificate ID: {award.certificateNumber}
                 </div>
                 <div className="certificate-date">
                   Date of Issue: {new Date(award.createdAt).toLocaleDateString()}
